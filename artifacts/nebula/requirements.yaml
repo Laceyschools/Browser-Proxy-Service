@@ -1,0 +1,16 @@
+packages:
+  "framer-motion": "For page transitions and smooth UI micro-interactions"
+  "date-fns": "For formatting the live digital clock"
+  "zustand": "For persistent settings state management (cloaking, preferences)"
+  "clsx": "For composing tailwind classes cleanly"
+  "tailwind-merge": "For merging tailwind classes without conflicts"
+
+images:
+  - path: "artifacts/nebula/public/images/nebula-bg.png"
+    description: "Deep space nebula background with subtle glowing purple and dark blue dust clouds, very dark, highly abstract, sleek and minimal, 4k resolution"
+    aspect_ratio: "16:9"
+
+notes:
+  - App relies on `/api/proxy` and `/api/proxy/resource` endpoints for web fetching.
+  - Proxy endpoints must return appropriate content types and rewrite relative URLs.
+  - Zustand is used to persist user settings to localStorage.
