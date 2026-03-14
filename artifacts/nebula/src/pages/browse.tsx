@@ -41,6 +41,17 @@ export default function Browse() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [initialUrl]);
 
+  useEffect(() => {
+    const handleMessage = (e: MessageEvent) => {
+      if (typeof e.data === "string" && e.data.startsWith("urlchange:")) {
+        const newUrl = e.data.slice("urlchange:".length);
+        setInputUrl(newUrl);
+      }
+    };
+    window.addEventListener("message", handleMessage);
+    return () => window.removeEventListener("message", handleMessage);
+  }, []);
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     loadProxyUrl(inputUrl);
